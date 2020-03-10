@@ -162,8 +162,11 @@ void work(int count, Node *curr_path, Node *prev_path, int i, int maze[][num_col
         if (curr_cell->next_cell->row_num == end_row && curr_cell->next_cell->col_num == end_col)
         {
             curr_path->count = -1;
-            min_cost_iter=i;
-            best_path=curr_path;
+            if (i<min_cost_iter)
+            {
+                min_cost_iter=i;
+                 best_path=curr_path;
+            }
         }
         if (maze[next_row[x]][next_col[x]] == 1) {
             int new_index = i + 1;
